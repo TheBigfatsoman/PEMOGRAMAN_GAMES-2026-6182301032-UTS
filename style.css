@@ -18,9 +18,8 @@ body, canvas, div {
 /* Remove spin of input type number */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 body {
@@ -42,15 +41,36 @@ body {
 
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+/* Game container */
+#GameDiv {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Keep the game in portrait */
+#Cocos3dGameContainer {
+  width: min(100vw, 56.25vh);
+  height: min(100vh, 177.78vw);
+  max-width: 100vw;
+  max-height: 100vh;
+  position: relative;
+}
+
+/* Canvas fills the portrait container */
+#GameCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 canvas {
   background-color: rgba(0, 0, 0, 0);
-}
-
-#GameDiv, #Cocos3dGameContainer, #GameCanvas {
-  width: 100%;
-  height: 100%;
 }
 
 :root {
